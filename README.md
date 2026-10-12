@@ -21,15 +21,16 @@ datenschutz.html    Datenschutzerklärung (Originaltext – muss angepasst werde
 agb.html            AGB (ZVEI „Grüne Lieferbedingungen“, Originaltext)
 assets/css/style.css
 assets/js/main.js
+assets/fonts/       IBM Plex Sans/Mono (selbst gehostet, SIL Open Font License)
 assets/img/         Logo, Fotos, Referenzbilder (von der bestehenden Seite übernommen)
 ```
 
 ## Was neu ist
 
-- **Modernes, responsives Design** im bestehenden CI (Navy `#1D3865` + Cyan `#219EB9`), mobile Schnellzugriff-Leiste (Anrufen / Anfrage)
+- **Sachliches, responsives Design** im bestehenden CI (Navy aus dem Logo, Blau vom Firmenschild), selbst gehostete Schrift IBM Plex, Kontaktdaten direkt im Kopf, Schnellzugriff „Anrufen / Anfrage“ auf dem Handy
 - **One-Pager** statt 20 verschachtelter Unterseiten, Inhalte der Unterseiten als Tabs
 - **Live-Öffnungsstatus** („Jetzt geöffnet · bis 17:00 Uhr“, Berliner Zeit)
-- **Durchsuchbares Sortiment** (22 Produktgruppen)
+- **Durchsuchbares Sortiment** (22 Produktgruppen) und alle Inhalte der alten Unterseiten (inkl. Fußschalter-Ausführungen, Kataloge, Lieferanten)
 - **Referenz-Galerie** mit Lightbox (Tastatur-bedienbar)
 - **Kontakt- & Bestellformular** in einem, mit beliebig vielen Artikelpositionen
 - **DSGVO-freundlicher**: kein Google Analytics, keine Google Fonts, Karte (OpenStreetMap) lädt erst nach Klick → kein Cookie-Banner nötig
@@ -41,6 +42,7 @@ assets/img/         Logo, Fotos, Referenzbilder (von der bestehenden Seite über
 - [ ] **Formular-Versand**: Aktuell öffnet das Formular das E-Mail-Programm (mailto). Für echten Versand in `assets/js/main.js` die Konstante `FORM_ENDPOINT` setzen (z. B. [Web3Forms](https://web3forms.com), [Formspree](https://formspree.io) oder ein PHP-Skript beim Hoster).
 - [ ] **Datenschutzerklärung anpassen**: Abschnitte zu Google Analytics, Google Maps und Usercentrics entfernen, OpenStreetMap (Karte per Klick) und ggf. Formular-Dienst ergänzen.
 - [ ] **Stellenanzeige**: PDF liegt noch beim alten CMS (onlineoff.ch) – lokal unter `assets/` ablegen und Link anpassen.
-- [ ] Inhalte mit der Firma abstimmen (Kennzahlen „30+ Hersteller“, Texte).
+- [ ] **BERNSTEIN-Kataloge**: Die 17 Katalog-PDFs sind von 2016 und liegen ebenfalls bei onlineoff.ch. Entweder auf den aktuellen Download-Bereich von bernstein.eu verlinken oder aktuelle PDFs ins Repo legen – sonst sind die Links nach Kündigung der alten Betreuung tot.
+- [ ] Inhalte mit der Firma abstimmen (Kennzahlen wie „100.000+ Artikel“, Texte).
 - [ ] Bilder in höherer Auflösung (die alten sind nur 850 × 500 px) und als WebP.
 - [ ] Domain umziehen bzw. DNS auf neues Hosting zeigen lassen, alte URLs per Redirect auf die neuen Anker umleiten.

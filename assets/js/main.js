@@ -36,40 +36,6 @@ const spy = new IntersectionObserver((entries) => {
 }, { rootMargin: "-45% 0px -50% 0px" });
 sections.forEach((s) => spy.observe(s));
 
-/* ---------- Reveal-Animationen ---------- */
-const revealer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("is-visible");
-      revealer.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
-$$(".reveal").forEach((el) => revealer.observe(el));
-
-/* ---------- Zähler in den Kennzahlen ---------- */
-const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-const counter = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (!entry.isIntersecting) return;
-    counter.unobserve(entry.target);
-    if (reduceMotion) return;
-    const el = entry.target;
-    const target = Number(el.dataset.count);
-    const suffix = el.querySelector("small")?.outerHTML ?? "";
-    const start = performance.now();
-    const duration = 1400;
-    const tick = (now) => {
-      const p = Math.min((now - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - p, 3);
-      el.innerHTML = Math.round(target * eased).toLocaleString("de-DE") + suffix;
-      if (p < 1) requestAnimationFrame(tick);
-    };
-    requestAnimationFrame(tick);
-  });
-}, { threshold: 0.6 });
-$$("[data-count]").forEach((el) => counter.observe(el));
-
 /* ---------- Tabs (barrierefrei, mit Pfeiltasten) ---------- */
 function activateTab(tabs, btn, focus = false) {
   const buttons = $$('[role="tab"]', tabs).filter((b) => b.closest("[data-tabs]") === tabs);
@@ -120,19 +86,6 @@ const updateCatalog = () => {
 };
 search.addEventListener("input", updateCatalog);
 updateCatalog();
-
-/* ---------- Marken-Laufband: Liste für nahtlose Schleife duplizieren ---------- */
-const marquee = $("[data-marquee]");
-if (marquee && !reduceMotion) {
-  const clone = marquee.firstElementChild.cloneNode(true);
-  clone.setAttribute("aria-hidden", "true");
-  $$("a", clone).forEach((a) => (a.tabIndex = -1));
-  marquee.appendChild(clone);
-} else if (marquee) {
-  marquee.style.flexWrap = "wrap";
-  marquee.style.width = "auto";
-  marquee.style.justifyContent = "center";
-}
 
 /* ---------- Lightbox für Referenzen ---------- */
 const lightbox = $("[data-lightbox]");
@@ -189,8 +142,8 @@ function updateOpenStatus() {
       text = `Geschlossen · öffnet ${label} um ${HOURS[d][0][0]} Uhr`;
     }
   }
-  $("[data-open-status]").classList.toggle("is-open", Boolean(open));
-  $("[data-open-text]").textContent = text;
+  $("[data-open-status]")?.classList.toggle("is-open", Boolean(open));
+  const t = $("[data-open-text]"); if (t) t.textContent = text;
   $$("[data-hours] tr").forEach((tr) => tr.classList.toggle("is-today", tr.dataset.days.split(",").includes(String(day))));
 }
 updateOpenStatus();
