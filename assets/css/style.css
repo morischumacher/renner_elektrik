@@ -449,6 +449,8 @@ a.info-card:hover { border-color: rgba(33,158,185,.5); box-shadow: var(--shadow-
    Responsive
    ========================================================= */
 @media (max-width: 1080px) {
+  .topbar .hide-sm, .topbar__right a[href^="mailto"] { display: none; }
+  .topbar span, .topbar a { white-space: nowrap; }
   .nav, .header__cta .btn { display: none; }
   .menu-toggle { display: inline-flex; }
   .nav {
