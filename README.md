@@ -17,6 +17,7 @@ oder einfach `index.html` im Browser öffnen.
 ```
 index.html          One-Pager mit allen Inhalten
 impressum.html      Impressum
+variante-1/         Erster Design-Entwurf (modern/dunkel) zum Vergleich – vor Go-live löschen
 datenschutz.html    Datenschutzerklärung (Originaltext – muss angepasst werden, s. u.)
 agb.html            AGB (ZVEI „Grüne Lieferbedingungen“, Originaltext)
 assets/css/style.css
